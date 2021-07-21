@@ -32,7 +32,6 @@ struct ContentView: View {
                 })
                 .frame(width: view.size.width , height: 180, alignment: .top)
                 .background(Color.purple)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 //
                 HStack(content: {
                     Button(action: {
@@ -40,15 +39,31 @@ struct ContentView: View {
                     }) {
                         Text("Hotéis")
                             .font(.custom("Avenir Medium", size: 17))
-                            .foregroundColor(Color.pink)
+                            .foregroundColor(.white)
                     }
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 50)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth:10))
+                    .background(Color.blue)
+                    .offset(x: 50)
+                    
+                    
+                    Spacer()
+                    
                     Button(action: {
                         print("Pacotes")
                     }) {
                         Text("Pacotes")
                             .font(.custom("Avenir Medium", size: 17))
+                            .foregroundColor(.white)
                     }
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 50)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.orange, lineWidth:10))
+                    .background(Color.orange)
+                    .offset(x: -50)
+                    
                 })
+                .offset(y: -25)
+                
                 List{
                     Text("Rio de Janeiro")
                     Text("Ceará")
@@ -57,6 +72,7 @@ struct ContentView: View {
                 }
             }
         }
+        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 
