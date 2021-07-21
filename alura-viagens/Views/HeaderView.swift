@@ -1,18 +1,16 @@
 //
-//  ContentView.swift
+//  HeaderView.swift
 //  alura-viagens
 //
-//  Created by Felipe Araujo on 15/07/21.
+//  Created by Felipe Araujo on 21/07/21.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct HeaderView: View {
     var body: some View {
         GeometryReader {
-            view in
-            VStack{
-                //MARK: -Header
+            view in VStack{
                 VStack(content: {
                     Text("Alura viagens")
                         .foregroundColor(Color.white)
@@ -63,30 +61,14 @@ struct ContentView: View {
                     
                 })
                 .offset(y: -25)
-                
-                List(viagens){ viagem in
-                    VStack (
-                        alignment: .leading,
-                        content:{
-                        Text(viagem.titulo)
-                        Image(viagem.imagem)
-                            .resizable()
-                            .frame(height: 125)
-                        HStack{
-                            Text(viagem.quantidadeDeDias)
-                            Spacer()
-                            Text(viagem.valor)
-                        }
-                    })
-                }
             }
         }
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HeaderView()
+            .previewLayout(.fixed(width: 400, height: 220))
     }
 }
